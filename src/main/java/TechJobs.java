@@ -10,7 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -62,9 +62,10 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not implemented yet.");
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
+                    //System.out.println("Search all fields not implemented yet.");
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm.toLowerCase()));
                 }
             }
         }
@@ -112,7 +113,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -120,6 +121,19 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        //System.out.println("printJobs is not implemented yet");
+        //checking if there are any jobs in someJobs
+        if (!someJobs.isEmpty()) {
+            for (HashMap<String, String> job : someJobs) { //looping though each job
+                System.out.println("\n*****");
+                for(Map.Entry<String, String> data : job.entrySet()){ //iterating though each hashmap object
+                    System.out.println(data.getKey() + ": " + data.getValue()); //printing each set of key-value pair
+            }
+                System.out.println("*****");
+        }
     }
+        else {
+            System.out.print("No Results");
+        }
+}
 }
