@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -118,7 +115,7 @@ public class TechJobs {
         return choiceKeys[choiceIdx];
     }
 
-    // Print a list of jobs
+     //Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         //System.out.println("printJobs is not implemented yet");
@@ -128,12 +125,66 @@ public class TechJobs {
                 System.out.println("\n*****");
                 for(Map.Entry<String, String> data : job.entrySet()){ //iterating though each hashmap object
                     System.out.println(data.getKey() + ": " + data.getValue()); //printing each set of key-value pair
-            }
+                }
                 System.out.println("*****");
+            }
         }
-    }
         else {
             System.out.print("No Results");
         }
-}
+    }
+
+//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        if (!someJobs.isEmpty()) {
+//            // Using a comparator to sort the jobs alphabetically by a specific field
+//            someJobs.sort((job1, job2) -> job1.get("position type").compareTo(job2.get("position type")));
+//
+//            for (HashMap<String, String> job : someJobs) {
+//                System.out.println("\n*****");
+//
+//                List<Map.Entry<String, String>> sortedEntries = new ArrayList<>(job.entrySet());
+//                Collections.sort(sortedEntries, Comparator.comparing(Map.Entry::getKey));
+//
+//                LinkedHashMap<String, String> sortedMap = new LinkedHashMap<>();
+//                for (Map.Entry<String, String> data : sortedEntries) {
+//                    sortedMap.put(data.getKey(), data.getValue());
+//                    System.out.println(sortedMap);
+//                    //System.out.println(data.getKey() + ": " + data.getValue());
+//                }
+//                System.out.println("*****");
+//            }
+//        } else {
+//            System.out.print("No Results");
+//        }
+//    }
+
+
+
+
+//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        if (!someJobs.isEmpty()) {
+//            // Sort the jobs alphabetically by a specific field, e.g., "position type"
+//            someJobs.sort(Comparator.comparing(job -> job.get("position type")));
+//
+//            for (HashMap<String, String> job : someJobs) {
+//                System.out.println("\n*****");
+//
+//                // Sort the entries of the job alphabetically by key
+//                List<Map.Entry<String, String>> sortedEntries = new ArrayList<>(job.entrySet());
+//                Collections.sort(sortedEntries, Comparator.comparing(Map.Entry::getKey));
+//
+//                // Print each key-value pair
+//                for (Map.Entry<String, String> data : sortedEntries) {
+//                    System.out.println(data.getKey() + ": " + data.getValue());
+//                }
+//                System.out.println("*****");
+//            }
+//        } else {
+//            System.out.print("No Results");
+//        }
+//    }
+
+
+
+
 }

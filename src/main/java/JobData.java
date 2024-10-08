@@ -58,7 +58,10 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        //return allJobs;
+        // Bonus mission. Normal version returns allJobs
+        return new ArrayList<>(allJobs);
+
     }
 
     /**
