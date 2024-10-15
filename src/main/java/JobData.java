@@ -86,10 +86,12 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.toLowerCase().contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
+        // Sort the results alphabetically by the specified column
+        //jobs.sort(Comparator.comparing(row -> row.get(column) != null ? row.get(column) : ""));
 
         return jobs;
     }
@@ -114,6 +116,9 @@ public class JobData {
                 }
             }
         }
+        // Sort the results alphabetically by a specific field
+        //jobValue.sort(Comparator.comparing(row -> row.get("Employer") != null ? row.get("Employer") : ""));
+
         return jobValue;
 
     }

@@ -1,10 +1,12 @@
+
+
 import java.util.*;
-import java.util.stream.Collectors;
+        import java.util.stream.Collectors;
 
 /**
  * Created by LaunchCode
  */
-public class TechJobs {
+public class TechJobsAlphabeticalOrder {
 
     static Scanner in = new Scanner(System.in);
 
@@ -116,53 +118,53 @@ public class TechJobs {
         return choiceKeys[choiceIdx];
     }
 
-     //Print a list of jobs
+    //Print a list of jobs
     //The original working printJobs method
 
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//
+//        //System.out.println("printJobs is not implemented yet");
+//        //checking if there are any jobs in someJobs
+//        if (!someJobs.isEmpty()) {
+//            for (HashMap<String, String> job : someJobs) { //looping though each job
+//                System.out.println("\n*****");
+//
+//                for(Map.Entry<String, String> data : job.entrySet()){ //iterating though each hashmap object
+//                    System.out.println(data.getKey() + ": " + data.getValue()); //printing each set of key-value pair
+//                }
+//                System.out.println("*****");
+//            }
+//        }
+//        else {
+//            System.out.print("No Results");
+//        }
+//    }
 
-        //System.out.println("printJobs is not implemented yet");
-        //checking if there are any jobs in someJobs
+    //printJobs method in alphabetical order
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         if (!someJobs.isEmpty()) {
-            for (HashMap<String, String> job : someJobs) { //looping though each job
+
+            Collections.sort(someJobs, new Comparator<HashMap<String, String>>() {
+                @Override
+                public int compare(HashMap<String, String> job1, HashMap<String, String> job2) {
+                    //get parameter is changeable. Here data is filtered by employer name
+                    return job1.get("employer").compareTo(job2.get("employer"));
+                }
+            });
+
+            for (HashMap<String, String> job : someJobs) {
                 System.out.println("\n*****");
+
 
                 for(Map.Entry<String, String> data : job.entrySet()){ //iterating though each hashmap object
                     System.out.println(data.getKey() + ": " + data.getValue()); //printing each set of key-value pair
                 }
                 System.out.println("*****");
             }
-        }
-        else {
+        } else {
             System.out.print("No Results");
         }
     }
-
-//    //printJobs method in alphabetical order
-//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-//        if (!someJobs.isEmpty()) {
-//
-//            Collections.sort(someJobs, new Comparator<HashMap<String, String>>() {
-//                @Override
-//                public int compare(HashMap<String, String> job1, HashMap<String, String> job2) {
-//                    //get parameter is changeable. Here data is filtered by employer name
-//                    return job1.get("employer").compareTo(job2.get("employer"));
-//                }
-//            });
-//
-//            for (HashMap<String, String> job : someJobs) {
-//                System.out.println("\n*****");
-//
-//
-//                for(Map.Entry<String, String> data : job.entrySet()){ //iterating though each hashmap object
-//                    System.out.println(data.getKey() + ": " + data.getValue()); //printing each set of key-value pair
-//               }
-//               System.out.println("*****");
-//            }
-//        } else {
-//            System.out.print("No Results");
-//        }
-//    }
 
 
 }
